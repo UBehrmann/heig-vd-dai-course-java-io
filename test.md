@@ -35,3 +35,32 @@
 - 5Mib = 5242880B
 
 java -jar target/java-ios-1.0-SNAPSHOT.jar -i=BUFFERED_TEXT bufferedTextWrite1b.txt write -s=1
+
+# Questions
+
+**Which type of stream is the most efficient for each use case?**
+
+Buffered binary seems to be the fastest to write files of all sizes.
+
+For the read operation, the buffered binary is also one of the fastest, but is closely followed by Text read and Buffered text read.
+
+**Why is it more efficient than the other types of streams?**
+
+There are less I/O operations, which are more expensive than the operations in memory.
+
+**What is the difference between binary data and text data?**
+
+- Binary data is a sequence of bytes that can represent any kind of data, including text.
+- Text data is a sequence of characters that can be encoded in different ways.
+
+**What is a character encoding?**
+
+It is a way to represent characters as bytes. 
+
+A = 65 in ASCII
+
+**Why is this benchmark methodology important?**
+
+- To measure real-world performance of different implementations.
+- Evaluate possible bottlenecks in the system.
+- Compare different implementations.
